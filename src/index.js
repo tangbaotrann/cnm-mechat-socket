@@ -1,13 +1,8 @@
-const dotenv = require("dotenv");
-
 const io = require("socket.io")(8900, {
   cors: {
-    origin: process.env.REACT_APP_BASE_URL,
+    origin: "http://localhost:3000/",
   },
 });
-
-// config file .env
-dotenv.config();
 
 // Save user connect or Remove user disconnect.
 let users = [];
