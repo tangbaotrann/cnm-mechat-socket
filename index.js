@@ -3,12 +3,18 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 
+const INDEX = "/socket/index.html";
+
 app.get("/", (req, res) => res.send("hi socket!"));
+
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
   },
 });
+
+// middleware
+app.use((req, res) => res.sendFile(INDEX, { root: __dirname }));
 
 // save users
 let users = [];
