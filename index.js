@@ -1,7 +1,7 @@
 const express = require("express");
-const https = require("https");
+const http = require("http");
 const app = express();
-const server = https.createServer(app);
+const server = http.createServer(app);
 
 app.get("/", (req, res) => res.send("hi socket!"));
 const io = require("socket.io")(server, {
