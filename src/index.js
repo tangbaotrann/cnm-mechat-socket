@@ -1,4 +1,9 @@
-const io = require("socket.io")(8900, {
+const express = require("express");
+const http = require("http");
+const app = express();
+const server = http.createServer(app);
+
+const io = require("socket.io")(server, {
   cors: {
     origin: "*",
   },
@@ -54,3 +59,5 @@ io.on("connection", (socket) => {
     io.emit("getUsers", users);
   });
 });
+
+server.listen(8900);
