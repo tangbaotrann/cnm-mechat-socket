@@ -3,6 +3,7 @@ const http = require("http");
 const app = express();
 const server = http.createServer(app);
 
+app.get("/", (req, res) => res.send("hi socket!"));
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
