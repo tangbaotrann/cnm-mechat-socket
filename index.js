@@ -61,4 +61,4 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(8900);
+server.listen(8900, "0.0.0.0");
